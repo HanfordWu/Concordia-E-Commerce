@@ -12,3 +12,4 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface ProductCategoryRepository extends JpaRepository<ProductCategory, Long> {
 
 }
+
