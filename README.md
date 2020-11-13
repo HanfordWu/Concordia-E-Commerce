@@ -13,7 +13,7 @@ Build REST web services on top of Spring Data repositories
 - MySQL
 
 
-To be deployed in AWS.
+It is deployed on AWS: http://3.18.106.253/
 
 Front page:
 ![alt](./screenshot/frontpage.png)

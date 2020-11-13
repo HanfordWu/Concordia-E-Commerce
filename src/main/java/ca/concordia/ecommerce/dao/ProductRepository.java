@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * Created by Hanford Wu on 2020-11-07 11:19 p.m.
  */
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:80")
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Page<Product> findByCategoryId(@RequestParam("id") Long id, Pageable pageable);
