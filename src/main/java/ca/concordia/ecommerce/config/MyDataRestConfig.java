@@ -1,7 +1,9 @@
 package ca.concordia.ecommerce.config;
 
+import ca.concordia.ecommerce.entity.Country;
 import ca.concordia.ecommerce.entity.Product;
 import ca.concordia.ecommerce.entity.ProductCategory;
+import ca.concordia.ecommerce.entity.State;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -40,6 +42,19 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         //      disable http methods for product category: put, post, and delete.
         config.getExposureConfiguration()
                 .forDomainType(ProductCategory.class)
+                .withItemExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+                .withCollectionExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+
+        //      disable http methods for country: put, post, and delete
+        config.getExposureConfiguration()
+                .forDomainType(Country.class)
+                .withItemExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
+                .withCollectionExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+
+
+        //      disable http methods for states: put, post, and delete.
+        config.getExposureConfiguration()
+                .forDomainType(State.class)
                 .withItemExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
                 .withCollectionExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
 
