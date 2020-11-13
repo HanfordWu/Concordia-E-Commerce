@@ -9,6 +9,13 @@
                         <div class="col-md-2">
                             <label>First Name</label>
 
+                            
+
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input type="text" formControlName="firstName">
+                            </div>
                             <div *ngIf="firstName.invalid && (firstName.dirty||firstName.touched)" class="alert alert-danger mt-1">
                                 <div *ngIf="firstName.errors.required">
                                     FirstName is required!
@@ -16,13 +23,11 @@
                                 <div *ngIf="firstName.errors.minlength">
                                     At least 2 characters!
                                 </div>
-                                
-                            </div>
 
-                        </div>
-                        <div class="col-md-9">
-                            <div class="input-space">
-                                <input type="text" formControlName="firstName">
+                                <div *ngIf="firstName.errors.notOnlyWhitespace">
+                                    notOnlyWhitespace!
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
