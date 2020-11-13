@@ -7,6 +7,8 @@ import {
 } from "@angular/forms";
 import { Country } from "src/app/common/country";
 import { State } from "src/app/common/state";
+import { CartService } from 'src/app/services/cart.service';
+import { ProductService } from 'src/app/services/product.service';
 import { ShopFormService } from "src/app/services/shop-form.service";
 import { ShopValidators } from 'src/app/validators/shop-validators';
 
@@ -28,7 +30,8 @@ export class CheckoutComponent implements OnInit {
 
     constructor(
         private formBuilder: FormBuilder,
-        private shopFormService: ShopFormService
+        private shopFormService: ShopFormService,
+        private cartService: CartService
     ) {}
 
     ngOnInit(): void {
@@ -89,9 +92,29 @@ export class CheckoutComponent implements OnInit {
         });
         // populate countries
         this.shopFormService.getCountries().subscribe((data) => {
-            console.log("retrieved countries: " + JSON.stringify(data));
+            // console.log("retrieved countries: " + JSON.stringify(data));
             this.countries = data;
         });
+
+        // get total price and quantity
+
+        console.log(this.totalPrice);
+        console.log(this.totalQuantity);
+        
+
+        // subscribe to the cart totalPrice
+
+    this.cartService.totalPrice.subscribe(
+      data => this.totalPrice = data
+    )
+
+    //subscribe to the cart totalQuantity
+
+    this.cartService.totalQuantity.subscribe(
+      data => this.totalQuantity = data
+    )
+        
+        
     }
 
     onSubmit() {
