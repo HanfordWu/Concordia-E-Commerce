@@ -13,7 +13,7 @@ Build REST web services on top of Spring Data repositories
 - MySQL
 
 
-It is deployed on AWS: http://3.18.106.253/
+It is deployed on AWS: http://3.18.106.253/, Nginx as a static file server, and a reverse proxy.
 
 Front page:
 ![alt](./screenshot/frontpage.png)
